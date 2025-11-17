@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COPILOT</title>
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background: transparent;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    #widgetBox {
+      width: 200px;
+      height: 50px;
+
+      border-radius: 20px;
+      padding: 18px 20px;
+
+      backdrop-filter: blur(180px) saturate(180%);
+      -webkit-backdrop-filter: blur(18px) saturate(180%);
+      background: rgba(20, 20, 20, 0.45);
+
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      z-index: 10;
+    }
+
+    #widgetTitle {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    #widgetStatus {
+      margin-top: 6px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+  </style>
+
+</head>
+
+<body>
+
+  <div id="widgetBox">
+    <div id="widgetTitle">
+      <img src="backend/icon.png" style="height:24px; border-radius:6px;">
+      COPILOT
+    </div>
+
+    <div id="widgetStatus">
+      <span id="badge" style="font-weight:600; color:#ff6b6b;">● Disconnected</span>
+    </div>
+  </div>
+
+  <script type="module" src="renderer.js"></script>
+
+</body>
+</html>

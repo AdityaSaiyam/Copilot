@@ -1,0 +1,70 @@
+{
+  "name": "copilot",
+  "version": "1.0.0",
+  "description": "AI Auto-Typer & Writing Assistant",
+  "main": "main.js",
+  "author": "Aditya Saiyam",
+  "license": "MIT",
+  "type": "commonjs",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "postinstall": "electron-builder install-app-deps"
+  },
+  "build": {
+    "appId": "com.copilot.autotyper",
+    "productName": "Copilot",
+    "compression": "maximum",
+    "directories": {
+      "output": "dist",
+      "buildResources": "resources"
+    },
+    "files": [
+      "index.html",
+      "main.js",
+      "renderer.js",
+      "preload.js",
+      "package.json",
+      "icon.ico",
+      "icon.png",
+      "worker.js",
+      "modules/**/*",
+      "backend/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "backend",
+        "to": "backend"
+      },
+      {
+        "from": "modules",
+        "to": "modules"
+      },
+      {
+        "from": "icon.png",
+        "to": "icon.png"
+      }
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "icon.ico",
+      "requestedExecutionLevel": "asInvoker"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "shortcutName": "Copilot",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": false
+    }
+  },
+  "dependencies": {
+    "cohere-ai": "^7.19.0",
+    "node-fetch": "^3.3.2"
+  },
+  "devDependencies": {
+    "electron": "^39.2.0",
+    "electron-builder": "^24.13.3"
+  }
+}
