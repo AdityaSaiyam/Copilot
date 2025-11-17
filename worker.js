@@ -35,7 +35,7 @@ let reconnecting = false;
 
 // ---------------- AI CLIENT ----------------
 const cohere = new CohereClient({
-    token: "AFz4P52BA9nBR5TxIdFuT25oFVCdojuZP5F7YwY8"
+    token: ""
 });
 
 // ---------------- START SOCKET ----------------
@@ -117,3 +117,4 @@ function sendUI(payload) {
 
 // ---------------- START ----------------
 startSocket();
+
